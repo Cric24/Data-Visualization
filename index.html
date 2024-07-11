@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Data Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive Data Visualization</h1>
+        <div class="theme-toggle">
+            <button onclick="toggleDarkMode()">Dark Mode</button>
+        </div>
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="controls">
+            <label for="chartType">Select Chart Type:</label>
+            <select id="chartType" onchange="updateChart()">
+                <option value="line">Line Chart</option>
+                <option value="bar">Bar Chart</option>
+                <option value="pie">Pie Chart</option>
+                <option value="doughnut">Doughnut Chart</option>
+            </select>
+            <label for="filterData">Filter Data:</label>
+            <select id="filterData" onchange="filterData()">
+                <option value="all">All</option>
+                <option value="lastMonth">Last Month</option>
+                
+                <option value="custom">Custom Date Range</option>
+            </select>
+            <input type="text" id="dateRange" style="display: none;" onchange="filterData()" placeholder="Select Date Range">
+            <button onclick="downloadChart()">Download Chart</button>
+        </div>
+        <div class="info-container" id="infoContainer"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
